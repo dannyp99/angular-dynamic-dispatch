@@ -1,10 +1,14 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { IBaseItem, IService, Student } from './data-field';
+import { BehaviorSubject } from 'rxjs';
+import { IService, Student } from './data-field';
+import { SampleData } from './sample-data';
 
 @Injectable()
 export class DataItemService {
   constructor() {}
+  loadData(service: IService) {
+    service.loadData();
+  }
 }
 
 @Injectable()
@@ -19,15 +23,21 @@ export class SharedStudent implements IService {
   hasError = this._hasError.asObservable();
 
   loadData(): void {
-    
+    this._data.next(SampleData.students);
+    this._isLoading.next(false);
+    this._hasError.next(SampleData.students.length === 0);
   }
-  createData(entry: IBaseItem): void {
-    throw new Error('Method not implemented.');
+  createData(entry: Student): void {
+    this._datum.next(entry);
+    SampleData.students.push(entry);
   }
-  updateData(entry: IBaseItem): void {
-    throw new Error('Method not implemented.');
+  updateData(entry: Student): void {
+    this._datum.next(entry);
+    const updateIndex = SampleData.students.findIndex(x => x.id === entry.id);
+    SampleData.students[updateIndex] = entry;
   }
   deleteData(entryId: string): void {
-    throw new Error('Method not implemented.');
+    const deleteIndex = SampleData.students.findIndex(x => x.id === entryId);
+    SampleData.students.splice(deleteIndex, 1);
   }
 }

@@ -1,5 +1,11 @@
 import { Observable } from 'rxjs';
 
+export interface ComponentData {
+  title: string;
+  datum: IBaseItem;
+  service: IService;
+}
+
 export interface IBaseItem {
   id: string;
   name: string;

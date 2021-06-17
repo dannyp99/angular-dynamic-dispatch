@@ -1,7 +1,7 @@
-import { Student } from "./data-field";
+import { Student, Teacher } from './data-field';
 
 export class SampleData {
-  students: Student[] = [
+  static students: Student[] = [
     {
       id: '1',
       name: 'Arty Mal'
@@ -10,6 +10,27 @@ export class SampleData {
       id: '2',
       name: 'Arn Banimal'
     },
-    {id: ''}
-  ]
+    {
+      id: '3',
+      name: 'Soesnt Duty'
+    }
+  ];
+
+  static teachers: Teacher[] = [
+    {
+      id: '1',
+      name: 'Tard Hests',
+      salaray: 23000
+    },
+    {
+      id: '2',
+      name: 'Tun Feature',
+      salaray: 120000
+    },
+    {
+      id: '3',
+      name: 'Tad Beature',
+      salaray: 2000
+    }
+  ];
 }
