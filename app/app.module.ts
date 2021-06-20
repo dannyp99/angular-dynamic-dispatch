@@ -15,12 +15,28 @@ import {
 
 import { AppComponent } from './app.component';
 import { DataViewerComponent } from './data-viewer/data-viewer.component';
-import { DataItemService } from './data-item.service';
+import {
+  DataItemService,
+  SharedStudent,
+  SharedTeacher
+} from './data-item.service';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, BrowserAnimationsModule, MdToolbarModule, MdTabsModule, MdButtonModule, MdInputModule, MdDatepickerModule, MdNativeDateModule, MdCheckboxModule, MdRadioModule ],
-  declarations: [ AppComponent, DataViewerComponent ],
-  bootstrap:    [ AppComponent ],
-  providers: [DataItemService]
+  imports: [
+    BrowserModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MdToolbarModule,
+    MdTabsModule,
+    MdButtonModule,
+    MdInputModule,
+    MdDatepickerModule,
+    MdNativeDateModule,
+    MdCheckboxModule,
+    MdRadioModule
+  ],
+  declarations: [AppComponent, DataViewerComponent],
+  bootstrap: [AppComponent],
+  providers: [DataItemService, SharedStudent, SharedTeacher]
 })
-export class AppModule { }
+export class AppModule {}

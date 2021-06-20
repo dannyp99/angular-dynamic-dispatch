@@ -1,4 +1,10 @@
 import { Student, Teacher } from './data-field';
+import { SharedStudent, SharedTeacher } from './data-item.service';
+
+export interface IDataLoader {
+  loadStudents(studentService: SharedStudent): Student[];
+  loadTeacher(teacherService: SharedTeacher): Teacher[];
+}
 
 export class SampleData {
   static students: Student[] = [

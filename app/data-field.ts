@@ -1,4 +1,5 @@
 import { Observable } from 'rxjs';
+import { IDataLoader } from './sample-data';
 
 export interface ComponentData {
   title: string;
@@ -17,7 +18,7 @@ export interface IService {
   datum: Observable<IBaseItem>;
   isLoading: Observable<boolean>;
   hasError: Observable<boolean>;
-  loadData(): void;
+  loadData(dl: IDataLoader): void;
   createData(entry: IBaseItem): void;
   updateData(entry: IBaseItem): void;
   deleteData(entryId: string): void;
