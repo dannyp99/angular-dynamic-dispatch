@@ -14,7 +14,9 @@ import {
 })
 export class AppComponent implements OnInit {
   students: Student[] = [];
+  selectedStudent: Student;
   teachers: Teacher[] = [];
+  selectedTeacher: Teacher;
   services: IService[] = [this.studentService, this.teacherService];
 
   isLoadingResults = false;

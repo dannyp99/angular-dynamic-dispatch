@@ -1,6 +1,20 @@
+<div *ngIf="isLoadingResults">
+  <md-spinner>
+  </md-spinner>
+</div>
+
 <md-toolbar color="primary">
   <span>Item Management</span>
 </md-toolbar>
+
+<md-input-container>
+  <label>Students</label>
+  <md-select ng-model="selectedStudent">
+    <md-option ng-repeat="student of students" ng-value="student">
+      {{ student.name }}
+    </md-option>
+  </md-select>
+</md-input-container>
 <md-toolbar>
   <span>Buttons</span>
 </md-toolbar>
